@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Module 3</title>
+	<link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
+<body background="/static/jpeg/jp.jpg">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+ <!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="/static/js/bootstrap.min.js"></script>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Module 3</a>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Create<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/student/new">Student</a></li>
+            <li><a href="/thesis/new">Thesis</a></li>
+            <li><a href="/adviser/new">Adviser</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">List<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/student/list">Student</a></li>
+            <li><a href="/thesis/list">Thesis</a></li>
+            <li><a href="/adviser/list">Adviser</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a>Team 6</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	{% for s in all_student %}
+		{% if urlid|string == s.key.id()|string %}
+			<div style="text-align:center">
+      <br>
+        <h6>Name</h6>
+        <h1>{{s.student_fname}} {{s.student_lname}}</h1>
+        <br>
+        <h6>Email</h6>
+        <h1>{{s.student_email}}</h1>
+        <br>
+        <h6>Student Number</h6>
+        <h1>{{s.student_number}}</h1>
+      </div>
+		{% endif %}
+	{% endfor %}
+	<div style="height:150px">
+	</div>
+</body>
+</html>
