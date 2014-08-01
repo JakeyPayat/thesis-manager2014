@@ -1,7 +1,9 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Module 3</title>
-    <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <title>Login</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+</head>
 </head>
 <body background="/static/jpeg/jp.jpg">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
@@ -42,32 +44,14 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a>Team 6</a></li>
-        <li><a>{{name}}</a></li>
-        <li><a href="{{url|safe}}">{{urlname}}</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-<div class="page-header">
-  <h1 style="color:white">Student List</h1>
+<div style="color:black; text-align:center">
+    <h3 style="color:black; text-align:center">You must be login to edit and create data.</h3>
+    <a href="{{url|safe}}" style="color:black">{{urlname}}</a>
 </div>
-<div>
-    <table class="table table-bordered" border="1" align="center" style="color: black">
-        <tr style="background-color: black; color: white">
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>View</th>
-            <th>Edit</th>
-        </tr>
-        {% for s in all_student %}
-        <tr style="background-color: white">
-        <td>{{ s.student_fname }}</td>
-        <td>{{s.student_lname}}</td>
-        <td><a href="/student/view/{{ s.key.id() }}">View</a></td>
-        <td><a href="/student/edit/{{ s.key.id() }}">Edit</a></td>
-        {% endfor %}
 
-    </table>
-</div>
 </body>
 </html>
